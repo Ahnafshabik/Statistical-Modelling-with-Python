@@ -37,16 +37,17 @@ Process:
 10. Build Regression Model: Employ stats models to create a regression model to establish bike-POI relationships.
 
 11. Interpret Model Output: Derive insights from the model to understand how POIs influence bike usage.
+    
+12. Create SQLite Database: Establish an SQLite database to store collected POI information.
+13. Explore Classification Approach: Consider transforming regression into a classification problem for further analysis.
 
-12. Explore Classification Approach: Consider transforming regression into a classification problem for further analysis.
+14. Create SQLite Database: Establish an SQLite database to store collected POI information.
 
-13. Create SQLite Database: Establish an SQLite database to store collected POI information.
+15. Validate Database: Ensure data integrity and validate the database against the merged data frame.
 
-14. Validate Database: Ensure data integrity and validate the database against the merged dataframe.
+16. Generate Insights: Draw valuable conclusions about urban mobility and POI characteristics' impact on bike sharing.
 
-15. Generate Insights: Draw valuable conclusions about urban mobility and POI characteristics' impact on bike sharing.
-
-16. Project Documentation: Summarize the process, outcomes, and insights in a clear and concise report.
+17. Project Documentation: Summarize the process, outcomes, and insights in a clear and concise report.
 
 ## Results
 Results:
