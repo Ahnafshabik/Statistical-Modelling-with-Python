@@ -1,0 +1,35 @@
+import numpy as np
+
+# Function to calculate the distance between two points using the Haversine formula
+def calculate_distance(lat1, lon1, lat2, lon2):
+    # Convert latitude and longitude from degrees to radians
+    lat1, lon1, lat2, lon2 = map(np.radians, (lat1, lon1, lat2, lon2))
+
+    # Difference in coordinates
+    dlat = lat2 - lat1
+    dlon = lon2 - lon1
+
+    # Haversine formula
+    a = np.sin(dlat/2.0)**2 + np.cos(lat1) * np.cos(lat2) * np.sin(dlon/2.0)**2
+
+    return 2 * 6371 * np.arcsin(np.sqrt(a))  # 2*r*asin...
+
+# Calculate the distance for each row in the first dataframe
+df['Distance_to_Station'] = calculate_distance(df['Latitude'], df['Longitude'], df['StationLatitude'], df['StationLongitude'])
+
+# Calculate the distance for each row in the second dataframe
+df_yelp['Distance_to_API_Point'] = calculate_distance(df_yelp['Latitude'], df_yelp['Longitude'], df_yelp['API Latitude'], df_yelp['API Longitude'])
+
+# Calculate the average distance to the station/API point for each dataset
+avg_distance_dataset1 = df['Distance_to_Station'].mean()
+avg_distance_dataset2 = df_yelp['Distance_to_API_Point'].mean()
+
+avg_distance_dataset1, avg_distance_dataset2
+
+#RESULT
+#(1.4600625317426632, 0.43219345117527813)
+
+####################################Comment###########################
+For the first dataset (output_file.xlsx): approximately 1.46 kilometers
+For the second dataset (data_frame_yelp.xlsx): approximately 0.43 kilometers
+This means that, on average, the places listed in the second dataset are closer to the provided API point than the places listed in the first dataset are to the provided station. Therefore, in terms of proximity to the reference point, the second dataset (data_frame_yelp.xlsx) appears to be more accurate.
